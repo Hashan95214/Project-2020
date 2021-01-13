@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Desktop\\New folder (2)\\cakeworld_solution\\cakeworld\\cakeworld.csproj": {}
+    "E:\\Software Project\\cakeworld\\cakeworld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Desktop\\New folder (2)\\cakeworld_solution\\cakeworld\\cakeworld.csproj": {
+    "E:\\Software Project\\cakeworld\\cakeworld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\New folder (2)\\cakeworld_solution\\cakeworld\\cakeworld.csproj",
+        "projectUniqueName": "E:\\Software Project\\cakeworld\\cakeworld.csproj",
         "projectName": "cakeworld",
-        "projectPath": "C:\\Users\\Acer\\Desktop\\New folder (2)\\cakeworld_solution\\cakeworld\\cakeworld.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Desktop\\New folder (2)\\cakeworld_solution\\cakeworld\\obj\\",
+        "projectPath": "E:\\Software Project\\cakeworld\\cakeworld.csproj",
+        "packagesPath": "C:\\Users\\Supun Aberathna\\.nuget\\packages\\",
+        "outputPath": "E:\\Software Project\\cakeworld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Supun Aberathna\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,29 +44,29 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.0, )"
-            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
