@@ -20,6 +20,7 @@ namespace cakeworld.Models
             public DbSet<Buyer> Buyers { get; set; }
             public DbSet<Order> Orders { get; set; }
             public DbSet<Cake> Cakes { get; set; }
+            public DbSet<Payment> Payments { get; set; }
     }
     }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj": {}
+    "F:\\Software_project\\Project-2020\\cakeworld\\cakeworld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj": {
+    "F:\\Software_project\\Project-2020\\cakeworld\\cakeworld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj",
+        "projectUniqueName": "F:\\Software_project\\Project-2020\\cakeworld\\cakeworld.csproj",
         "projectName": "cakeworld",
-        "projectPath": "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj",
+        "projectPath": "F:\\Software_project\\Project-2020\\cakeworld\\cakeworld.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\obj\\",
+        "outputPath": "F:\\Software_project\\Project-2020\\cakeworld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
