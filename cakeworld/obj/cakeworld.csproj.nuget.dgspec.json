@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Software Project\\cakeworld\\cakeworld.csproj": {}
+    "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj": {}
   },
   "projects": {
-    "E:\\Software Project\\cakeworld\\cakeworld.csproj": {
+    "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Software Project\\cakeworld\\cakeworld.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj",
         "projectName": "cakeworld",
-        "projectPath": "E:\\Software Project\\cakeworld\\cakeworld.csproj",
-        "packagesPath": "C:\\Users\\Supun Aberathna\\.nuget\\packages\\",
-        "outputPath": "E:\\Software Project\\cakeworld\\obj\\",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\cakeworld.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\softwareproject\\cakeworld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Supun Aberathna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

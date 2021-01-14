@@ -11,48 +11,48 @@ namespace cakeworld.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CakesController : ControllerBase
+    public class SellersController : ControllerBase
     {
         private readonly OnlineDBContext _context;
 
-        public CakesController(OnlineDBContext context)
+        public SellersController(OnlineDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cakes
+        // GET: api/Sellers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cake>>> GetCakes()
+        public async Task<ActionResult<IEnumerable<Seller>>> GetSellers()
         {
-            return await _context.Cakes.ToListAsync();
+            return await _context.Sellers.ToListAsync();
         }
 
-        // GET: api/Cakes/5
+        // GET: api/Sellers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cake>> GetCake(int id)
+        public async Task<ActionResult<Seller>> GetSeller(int id)
         {
-            var cake = await _context.Cakes.FindAsync(id);
+            var seller = await _context.Sellers.FindAsync(id);
 
-            if (cake == null)
+            if (seller == null)
             {
                 return NotFound();
             }
 
-            return cake;
+            return seller;
         }
 
-        // PUT: api/Cakes/5
+        // PUT: api/Sellers/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCake(int id, Cake cake)
+        public async Task<IActionResult> PutSeller(int id, Seller seller)
         {
-            if (id != cake.Id)
+            if (id != seller.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cake).State = EntityState.Modified;
+            _context.Entry(seller).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace cakeworld.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CakeExists(id))
+                if (!SellerExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace cakeworld.Controllers
             return NoContent();
         }
 
-        // POST: api/Cakes
+        // POST: api/Sellers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Cake>> PostCake(Cake cake)
+        public async Task<ActionResult<Seller>> PostSeller(Seller seller)
         {
-            _context.Cakes.Add(cake);
+            _context.Sellers.Add(seller);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCake", new { id = cake.Id }, cake);
+            return CreatedAtAction("GetSeller", new { id = seller.Id }, seller);
         }
 
-        // DELETE: api/Cakes/5
+        // DELETE: api/Sellers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Cake>> DeleteCake(int id)
+        public async Task<ActionResult<Seller>> DeleteSeller(int id)
         {
-            var cake = await _context.Cakes.FindAsync(id);
-            if (cake == null)
+            var seller = await _context.Sellers.FindAsync(id);
+            if (seller == null)
             {
                 return NotFound();
             }
 
-            _context.Cakes.Remove(cake);
+            _context.Sellers.Remove(seller);
             await _context.SaveChangesAsync();
 
-            return cake;
+            return seller;
         }
 
-        private bool CakeExists(int id)
+        private bool SellerExists(int id)
         {
-            return _context.Cakes.Any(e => e.Id == id);
+            return _context.Sellers.Any(e => e.Id == id);
         }
     }
 }

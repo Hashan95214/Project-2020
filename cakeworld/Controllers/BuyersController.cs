@@ -11,48 +11,48 @@ namespace cakeworld.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CakesController : ControllerBase
+    public class BuyersController : ControllerBase
     {
         private readonly OnlineDBContext _context;
 
-        public CakesController(OnlineDBContext context)
+        public BuyersController(OnlineDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cakes
+        // GET: api/Buyers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cake>>> GetCakes()
+        public async Task<ActionResult<IEnumerable<Buyer>>> GetBuyers()
         {
-            return await _context.Cakes.ToListAsync();
+            return await _context.Buyers.ToListAsync();
         }
 
-        // GET: api/Cakes/5
+        // GET: api/Buyers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cake>> GetCake(int id)
+        public async Task<ActionResult<Buyer>> GetBuyer(int id)
         {
-            var cake = await _context.Cakes.FindAsync(id);
+            var buyer = await _context.Buyers.FindAsync(id);
 
-            if (cake == null)
+            if (buyer == null)
             {
                 return NotFound();
             }
 
-            return cake;
+            return buyer;
         }
 
-        // PUT: api/Cakes/5
+        // PUT: api/Buyers/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCake(int id, Cake cake)
+        public async Task<IActionResult> PutBuyer(int id, Buyer buyer)
         {
-            if (id != cake.Id)
+            if (id != buyer.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cake).State = EntityState.Modified;
+            _context.Entry(buyer).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace cakeworld.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CakeExists(id))
+                if (!BuyerExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace cakeworld.Controllers
             return NoContent();
         }
 
-        // POST: api/Cakes
+        // POST: api/Buyers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Cake>> PostCake(Cake cake)
+        public async Task<ActionResult<Buyer>> PostBuyer(Buyer buyer)
         {
-            _context.Cakes.Add(cake);
+            _context.Buyers.Add(buyer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCake", new { id = cake.Id }, cake);
+            return CreatedAtAction("GetBuyer", new { id = buyer.Id }, buyer);
         }
 
-        // DELETE: api/Cakes/5
+        // DELETE: api/Buyers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Cake>> DeleteCake(int id)
+        public async Task<ActionResult<Buyer>> DeleteBuyer(int id)
         {
-            var cake = await _context.Cakes.FindAsync(id);
-            if (cake == null)
+            var buyer = await _context.Buyers.FindAsync(id);
+            if (buyer == null)
             {
                 return NotFound();
             }
 
-            _context.Cakes.Remove(cake);
+            _context.Buyers.Remove(buyer);
             await _context.SaveChangesAsync();
 
-            return cake;
+            return buyer;
         }
 
-        private bool CakeExists(int id)
+        private bool BuyerExists(int id)
         {
-            return _context.Cakes.Any(e => e.Id == id);
+            return _context.Buyers.Any(e => e.Id == id);
         }
     }
 }
