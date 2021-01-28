@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c4BX6/lmgU5dKVIzVbMBpfzecSr+BaIWN1PMMVoWt2tnM50/MexkXEELnci7ofpCgxgxxYjDsawYcBO1fWBGCg==",
+  "dgSpecHash": "Xh+Sl9qU4yGoIOLQL1TMIGs57vEhDN5mD7T91xyZ+h+9/dUGgEgtCYf3hv+/Q3TL4ooR7MLk/OGVpzslAxUv1A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Desktop\\Software project\\cakeworld\\cakeworld.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\Cakeworld pro\\cakeworld\\cakeworld.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
