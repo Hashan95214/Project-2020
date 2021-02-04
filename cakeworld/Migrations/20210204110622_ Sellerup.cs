@@ -2,7 +2,7 @@
 
 namespace cakeworld.Migrations
 {
-    public partial class seller : Migration
+    public partial class Sellerup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

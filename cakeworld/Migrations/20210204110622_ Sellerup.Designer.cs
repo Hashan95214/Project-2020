@@ -9,14 +9,14 @@ using cakeworld.Models;
 namespace cakeworld.Migrations
 {
     [DbContext(typeof(OnlineDBContext))]
-    [Migration("20210128165630_seller")]
-    partial class seller
+    [Migration("20210204110622_ Sellerup")]
+    partial class Sellerup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.10")
+                .HasAnnotation("ProductVersion", "3.1.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -72,6 +72,26 @@ namespace cakeworld.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cakes");
+                });
+
+            modelBuilder.Entity("cakeworld.Models.Login", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Logins");
                 });
 
             modelBuilder.Entity("cakeworld.Models.Order", b =>

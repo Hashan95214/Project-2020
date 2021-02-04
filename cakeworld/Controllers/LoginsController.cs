@@ -54,6 +54,7 @@ namespace cakeworld.Controllers
                 var CheckEmailBuyer = _context.Buyers.FirstOrDefault(m => m.Email.ToLower() == login.Email.ToLower()); //check email already exit or not
                 var CheckPasswordBuyer = _context.Buyers.FirstOrDefault(m => m.Password == login.Password);
 
+              
 
 
 

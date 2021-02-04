@@ -7,20 +7,20 @@ using Microsoft.EntityFrameworkCore;
 namespace cakeworld.Models
 
     {
-        public class OnlineDBContext : DbContext
+    public class OnlineDBContext : DbContext
+    {
+        public OnlineDBContext(DbContextOptions<OnlineDBContext> options)
+        : base(options)
+
         {
-            public OnlineDBContext(DbContextOptions<OnlineDBContext> options)
-            : base(options)
-
-            {
-            }
+        }
 
 
-            public DbSet<Seller> Sellers { get; set; }
-            public DbSet<Buyer> Buyers { get; set; }
-            public DbSet<Order> Orders { get; set; }
-            public DbSet<Cake> Cakes { get; set; }
-            public DbSet<Login> Logins { get; set; }
+        public DbSet<Buyer> Buyers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Cake> Cakes { get; set; }
+        public DbSet<Login> Logins { get; set; }
+        public DbSet<Seller> Sellers { get; set; }
     }
     }
 
