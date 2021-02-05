@@ -54,11 +54,13 @@ namespace cakeworld.Controllers
                 var CheckEmailBuyer = _context.Buyers.FirstOrDefault(m => m.Email.ToLower() == login.Email.ToLower()); //check email already exit or not
                 var CheckPasswordBuyer = _context.Buyers.FirstOrDefault(m => m.Password == login.Password);
 
-              
+                var CheckEmailSeller = _context.Sellers.FirstOrDefault(m => m.Email.ToLower() == login.Email.ToLower()); //check email already exit or not
+                var CheckPasswordSeller = _context.Sellers.FirstOrDefault(m => m.Password == login.Password);
 
 
 
-                if (CheckEmailBuyer == null || CheckPasswordBuyer == null)
+
+                if ((CheckEmailBuyer == null || CheckPasswordBuyer == null) && (CheckEmailSeller == null || CheckPasswordSeller == null))
                 {
                     return BadRequest(); //New page
                 }
