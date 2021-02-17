@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using cakeworld.Models;
+using cakeworld.Services.MailService;
 
 namespace cakeworld.Controllers
 {
@@ -16,37 +17,24 @@ namespace cakeworld.Controllers
     {
         public readonly OnlineDBContext _context;
 
-        public readonly IConfiguration _config;
+        private readonly IConfiguration _config;
+        private IMailService _mailService;
 
-        public LoginsController(IConfiguration config ,OnlineDBContext context)
+        public LoginsController(IConfiguration config ,OnlineDBContext context, IMailService mailService)
         {
+            _config = config;
             _context = context;
+            _mailService = mailService;
         }
 
-        // GET: api/Logins
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Login>>> GetLogins()
+        public async Task<ActionResult<IEnumerable<Login>>> GetLogin()
         {
             return await _context.Logins.ToListAsync();
         }
 
-        // GET: api/Logins/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Login>> GetLogin(int id)
-        {
-            var login = await _context.Logins.FindAsync(id);
-
-            if (login == null)
-            {
-                return NotFound();
-            }
-
-            return login;
-        }
-
 
         [HttpPost]
-        [Route("login")]
         public async Task<IActionResult> Login(Login login)
         {
             try
@@ -69,9 +57,11 @@ namespace cakeworld.Controllers
 
                 else
                 {
+                    await _mailService.SendEmailAsync(login.Email, "New login", "<h1>Hey!, Did you login to your account</h1><p>New login to your account at " + DateTime.Now + "</p>");
 
                     return Ok("completed");
                     
+
                 }
 
 

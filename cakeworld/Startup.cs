@@ -12,6 +12,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using cakeworld.Models;
 using Microsoft.EntityFrameworkCore;
+using cakeworld.Services.MailService;
+
 
 namespace cakeworld
 {
@@ -29,6 +31,8 @@ namespace cakeworld
         {
             services.AddDbContext<OnlineDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("OnlineDBContext")));
             services.AddControllers();
+            services.AddTransient<IMailService, MailService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

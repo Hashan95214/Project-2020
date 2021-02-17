@@ -901,3 +901,5 @@ C:\Users\Acer\Desktop\software backend\cakeworld\obj\Debug\netcoreapp3.1\cakewor
 C:\Users\Acer\Desktop\software backend\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.dll
 C:\Users\Acer\Desktop\software backend\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.pdb
 C:\Users\Acer\Desktop\software backend\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.genruntimeconfig.cache
+C:\Users\Acer\Desktop\software backend\cakeworld\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\Acer\Desktop\software backend\cakeworld\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
