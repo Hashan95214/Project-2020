@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj": {}
+    "D:\\Project-2020\\cakeworld\\cakeworld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj": {
+    "D:\\Project-2020\\cakeworld\\cakeworld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj",
+        "projectUniqueName": "D:\\Project-2020\\cakeworld\\cakeworld.csproj",
         "projectName": "cakeworld",
-        "projectPath": "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\obj\\",
+        "projectPath": "D:\\Project-2020\\cakeworld\\cakeworld.csproj",
+        "packagesPath": "C:\\Users\\Supun Aberathna\\.nuget\\packages\\",
+        "outputPath": "D:\\Project-2020\\cakeworld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Supun Aberathna\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,21 +47,21 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.11, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.11, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.11, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "SendGrid": {
               "target": "Package",

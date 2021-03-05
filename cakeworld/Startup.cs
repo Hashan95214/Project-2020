@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using cakeworld.Models;
 using Microsoft.EntityFrameworkCore;
 using cakeworld.Services.MailService;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 
 namespace cakeworld
@@ -38,6 +40,12 @@ namespace cakeworld
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseCors(options => 
+            options.WithOrigins("http://localhost:3000")
+             .AllowAnyMethod()
+             .AllowAnyHeader());
+
             app.UseCors(Options =>
             Options.AllowAnyOrigin()
             .AllowAnyMethod()
@@ -49,6 +57,14 @@ namespace cakeworld
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
+                RequestPath = "/Images"
+            });
+
 
             app.UseHttpsRedirection();
 
