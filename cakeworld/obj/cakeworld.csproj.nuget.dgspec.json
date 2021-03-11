@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project-2020\\cakeworld\\cakeworld.csproj": {}
+    "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj": {}
   },
   "projects": {
-    "D:\\Project-2020\\cakeworld\\cakeworld.csproj": {
+    "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project-2020\\cakeworld\\cakeworld.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj",
         "projectName": "cakeworld",
-        "projectPath": "D:\\Project-2020\\cakeworld\\cakeworld.csproj",
-        "packagesPath": "C:\\Users\\Supun Aberathna\\.nuget\\packages\\",
-        "outputPath": "D:\\Project-2020\\cakeworld\\obj\\",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\cakeworld.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\software backend\\cakeworld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Supun Aberathna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -35,7 +35,19 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
@@ -43,7 +55,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.10, )"
+              "version": "[3.1.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -66,6 +78,10 @@
             "SendGrid": {
               "target": "Package",
               "version": "[9.22.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
             }
           },
           "imports": [

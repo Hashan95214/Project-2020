@@ -15,7 +15,9 @@ using Microsoft.EntityFrameworkCore;
 using cakeworld.Services.MailService;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
-
+using Microsoft.IdentityModel.Tokens;
+using cakeworld.Services.JWT_Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace cakeworld
 {
@@ -33,6 +35,25 @@ namespace cakeworld
         {
             services.AddDbContext<OnlineDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("OnlineDBContext")));
             services.AddControllers();
+            services.AddScoped<IJWTService, JWTService>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
+                   // IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"])),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
             services.AddTransient<IMailService, MailService>();
 
         }

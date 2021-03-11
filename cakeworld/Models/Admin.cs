@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace cakeworld.Models
 {
-    public class Seller
+    public class Admin
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -17,7 +16,7 @@ namespace cakeworld.Models
         public string MobileNumber { get; set; }
         public string Password { get; set; }
 
-        public string UserRole = "Seller";
-       
+        public string UserRole = "Admin";
+
     }
 }

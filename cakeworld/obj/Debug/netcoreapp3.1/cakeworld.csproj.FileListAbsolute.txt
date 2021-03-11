@@ -1060,3 +1060,4 @@ D:\Project-2020\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.dll
 D:\Project-2020\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.pdb
 D:\Project-2020\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.genruntimeconfig.cache
 D:\Project-2020\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\software backend\cakeworld\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
