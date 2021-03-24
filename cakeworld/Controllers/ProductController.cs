@@ -46,14 +46,26 @@ namespace cakeworld.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductModel>> GetProductModel(int id)
         {
-            var productModel = await _context.Products.FindAsync(id);
+            var ProductModel = await _context.Products
+                .Select(x => new ProductModel()
+                {
+                    ProductID = x.ProductID,
+                    ProductName = x.ProductName,
+                    Price = x.Price,
+                    Category = x.Category,
+                    Description = x.Description,
+                    ImageName = x.ImageName,
+                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                })
+                .Where(i => i.ProductID == id)
+                .FirstOrDefaultAsync();
 
-            if (productModel == null)
+            if (ProductModel == null)
             {
                 return NotFound();
             }
 
-            return productModel;
+            return ProductModel;
         }
 
         // PUT: api/Product/5
