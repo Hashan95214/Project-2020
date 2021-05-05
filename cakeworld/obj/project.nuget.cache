@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "85jX+ptottg4G85p4lHnc39BU/A/oUiJ9VfyHSXkoY2mV6BVurMcfC/4XzvOZ+xDiZfPfmVuJjPkm81Ug+Bg2w==",
+  "dgSpecHash": "+kxG0kbzgL9/rg5zv/WEYE96nWDQz6UmiaDP+1Fv5CKPnPpkaAx55uuIxIQuWEFRfWxgVHIbctU6C+pjI7WHtA==",
   "success": true,
-  "projectFilePath": "F:\\cakeworld\\new\\cakeworld\\cakeworld.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\N bk end\\cakeworld\\cakeworld.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
