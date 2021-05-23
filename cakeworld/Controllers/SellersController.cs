@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using cakeworld.Models;
+using cakeworld.Services.MailService;
+using Microsoft.Extensions.Configuration;
 
 namespace cakeworld.Controllers
 {
@@ -13,11 +15,15 @@ namespace cakeworld.Controllers
     [ApiController]
     public class SellersController : ControllerBase
     {
+        private readonly IConfiguration _config;
         private readonly OnlineDBContext _context;
+        private IMailService _mailService;
 
-        public SellersController(OnlineDBContext context)
+        public SellersController(IConfiguration config, OnlineDBContext context, IMailService mailService)
         {
+            _config = config;
             _context = context;
+            _mailService = mailService;
         }
 
         // GET: api/Sellers
@@ -81,6 +87,7 @@ namespace cakeworld.Controllers
         {
             _context.Sellers.Add(seller);
             await _context.SaveChangesAsync();
+            await _mailService.SendEmailAsync(seller.Email, "Registration Successful", "<h1>Hey!, You are succesfully registered as seller in cakeworld </h1><p>Create your account at " + DateTime.Now + "</p>");
 
             return CreatedAtAction("GetSeller", new { id = seller.Id }, seller);
         }

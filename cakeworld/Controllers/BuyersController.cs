@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using cakeworld.Models;
+using cakeworld.Services.MailService;
+using Microsoft.Extensions.Configuration;
 
 namespace cakeworld.Controllers
 {
@@ -13,11 +15,17 @@ namespace cakeworld.Controllers
     [ApiController]
     public class BuyersController : ControllerBase
     {
+        private readonly IConfiguration _config;
         private readonly OnlineDBContext _context;
+        private IMailService _mailService;
 
-        public BuyersController(OnlineDBContext context)
+        public BuyersController(IConfiguration config, OnlineDBContext context, IMailService mailService)
         {
+            _config = config;
             _context = context;
+            _mailService = mailService;
+
+
         }
 
         // GET: api/Buyers
@@ -81,6 +89,7 @@ namespace cakeworld.Controllers
         {
             _context.Buyers.Add(buyer);
             await _context.SaveChangesAsync();
+            await _mailService.SendEmailAsync(buyer.Email, "Registration Successful  ", "<h1>Hey!, You are successfully registered as Buyer in cakeworld </h1><p>Create your account at " + DateTime.Now + "</p>");
 
             return CreatedAtAction("GetBuyer", new { id = buyer.Id }, buyer);
         }
