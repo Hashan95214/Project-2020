@@ -23,7 +23,6 @@ namespace cakeworld.Models
         public string ImageName { get; set; }
 
 
-
         public string Description { get; set; }
 
 
@@ -34,6 +33,8 @@ namespace cakeworld.Models
 
         [NotMapped]
         public string ImageSrc { get; set; }
+
+        public int SellerID { get; set; }
 
 
 

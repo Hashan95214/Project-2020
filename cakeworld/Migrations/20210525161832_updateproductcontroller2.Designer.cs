@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cakeworld.Models;
 
 namespace cakeworld.Migrations
 {
     [DbContext(typeof(OnlineDBContext))]
-    partial class OnlineDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210525161832_updateproductcontroller2")]
+    partial class updateproductcontroller2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
