@@ -35,6 +35,7 @@ namespace cakeworld.Models
         public string ImageSrc { get; set; }
 
         public int SellerID { get; set; }
+        public string Conformation { get; set; }
 
 
 

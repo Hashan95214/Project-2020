@@ -24,8 +24,10 @@ namespace cakeworld.Controllers
             this._hostEnvironment = hostEnvironment;
         }
 
+
         // GET: api/Product
         [HttpGet]
+        [Route("Accept")]
         public async Task<ActionResult<IEnumerable<ProductModel>>> GetProducts()
         {
             return await _context.Products
@@ -37,8 +39,42 @@ namespace cakeworld.Controllers
                      Category = x.Category,
                      Description = x.Description,
                      ImageName = x.ImageName,
+                     SellerID = x.SellerID,
+                     Conformation = x.Conformation,
+
                      ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
                  })
+
+                .ToListAsync();
+        }
+
+
+
+
+
+
+
+
+
+
+        // GET: api/Product
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ProductModel>>> GetProducts(string Conformation)
+        {
+            return await _context.Products
+                 .Select(x => new ProductModel()
+                 {
+                     ProductID = x.ProductID,
+                     ProductName = x.ProductName,
+                     Price = x.Price,
+                     Category = x.Category,
+                     Description = x.Description,
+                     ImageName = x.ImageName,
+                     SellerID = x.SellerID,
+                     Conformation = x.Conformation,
+                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                 })
+                  .Where(x => x.Conformation == "Ok")
                 .ToListAsync();
         }
 
