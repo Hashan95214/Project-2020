@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "frmEnSAST4RAxxDKwa+YaET5KT3E8BicfglQLMqyWbDGWdTTb8W1EK10qvEwTDnIyn2bd9IXQU34Pxm+6TbnZw==",
+  "dgSpecHash": "gZ4YMdXx68EW/dUI0vtrNj9UcnKD2qsTJcteIcva1cabaQAxcmQSUL7K/eMaxWmym5kRtPffZXx0m8zM+2vfjA==",
   "success": true,
   "projectFilePath": "F:\\cakeworld\\bc_2021-06-07\\cakeworld\\cakeworld.csproj",
   "expectedPackageFiles": [
@@ -112,6 +112,7 @@
     "C:\\Users\\Acer\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\starkbank-ecdsa\\1.2.0\\starkbank-ecdsa.1.2.0.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\stripe.net\\39.52.0\\stripe.net.39.52.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

@@ -1593,6 +1593,20 @@
           "lib/netstandard2.1/StarkbankEcdsa.dll": {}
         }
       },
+      "Stripe.net/39.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.0",
+          "Newtonsoft.Json": "11.0.1",
+          "System.Configuration.ConfigurationManager": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Stripe.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Stripe.net.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1872,7 +1886,7 @@
           "System.Security.Permissions": "4.5.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
@@ -5333,6 +5347,28 @@
         "lib/netstandard2.1/StarkbankEcdsa.dll",
         "starkbank-ecdsa.1.2.0.nupkg.sha512",
         "starkbank-ecdsa.nuspec"
+      ]
+    },
+    "Stripe.net/39.52.0": {
+      "sha512": "lYMyrw7VDj8Qbil7jcXtCE7cjdF8x43liY4FFoIunKWgrhD+bFg0+L2zr+meQYNkrr5eYaxaP3272bhzyJesJA==",
+      "type": "package",
+      "path": "stripe.net/39.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "lib/net461/Stripe.net.dll",
+        "lib/net461/Stripe.net.pdb",
+        "lib/net461/Stripe.net.xml",
+        "lib/net5.0/Stripe.net.dll",
+        "lib/net5.0/Stripe.net.pdb",
+        "lib/net5.0/Stripe.net.xml",
+        "lib/netstandard2.0/Stripe.net.dll",
+        "lib/netstandard2.0/Stripe.net.pdb",
+        "lib/netstandard2.0/Stripe.net.xml",
+        "stripe.net.39.52.0.nupkg.sha512",
+        "stripe.net.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -9602,6 +9638,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.15",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "SendGrid >= 9.22.0",
+      "Stripe.net >= 39.52.0",
       "System.IdentityModel.Tokens.Jwt >= 6.8.0"
     ]
   },
@@ -9687,6 +9724,10 @@
           "SendGrid": {
             "target": "Package",
             "version": "[9.22.0, )"
+          },
+          "Stripe.net": {
+            "target": "Package",
+            "version": "[39.52.0, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",

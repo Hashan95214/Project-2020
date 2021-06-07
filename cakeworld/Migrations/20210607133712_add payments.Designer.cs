@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cakeworld.Models;
 
 namespace cakeworld.Migrations
 {
     [DbContext(typeof(OnlineDBContext))]
-    partial class OnlineDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210607133712_add payments")]
+    partial class addpayments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,48 +246,6 @@ namespace cakeworld.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OrderProducts");
-                });
-
-            modelBuilder.Entity("cakeworld.Models.Payments", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BillDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("BuyerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CardName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CardNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Cvv")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ExpMonth")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExpYear")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OrderNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("cakeworld.Models.ProductModel", b =>

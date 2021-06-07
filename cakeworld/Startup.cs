@@ -18,6 +18,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using cakeworld.Services.JWT_Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using cakeworld.Services;
 
 namespace cakeworld
 {
@@ -35,6 +36,7 @@ namespace cakeworld
         {
             services.AddDbContext<OnlineDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("OnlineDBContext")));
             services.AddControllers();
+            services.AddTransient<MakePayment>();
             services.AddScoped<IJWTService, JWTService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

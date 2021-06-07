@@ -1851,3 +1851,4 @@ F:\cakeworld\bc_2021-06-07\cakeworld\obj\Debug\netcoreapp3.1\scopedcss\bundle\ca
 F:\cakeworld\bc_2021-06-07\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.RazorTargetAssemblyInfo.cache
 F:\cakeworld\bc_2021-06-07\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.csproj.CopyComplete
 F:\cakeworld\bc_2021-06-07\cakeworld\obj\Debug\netcoreapp3.1\cakeworld.genruntimeconfig.cache
+F:\cakeworld\bc_2021-06-07\cakeworld\bin\Debug\netcoreapp3.1\Stripe.net.dll
