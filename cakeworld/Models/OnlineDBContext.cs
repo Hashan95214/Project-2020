@@ -25,6 +25,7 @@ namespace cakeworld.Models
         public DbSet<ProductModel> Products { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<cakeworld.Models.Rating> Rating { get; set; }
+        public DbSet<cakeworld.Models.OrderDetails> OrderDetails { get; set; }
     }
     }
 
