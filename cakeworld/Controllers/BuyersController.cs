@@ -17,12 +17,14 @@ namespace cakeworld.Controllers
     {
         private readonly IConfiguration _config;
         private readonly OnlineDBContext _context;
+        public readonly OnlineDBContext _db;
         private IMailService _mailService;
 
-        public BuyersController(IConfiguration config, OnlineDBContext context, IMailService mailService)
+        public BuyersController(IConfiguration config, OnlineDBContext db, OnlineDBContext context, IMailService mailService)
         {
             _config = config;
             _context = context;
+            _db = db;
             _mailService = mailService;
 
 
@@ -86,12 +88,29 @@ namespace cakeworld.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Buyer>> PostBuyer(Buyer buyer)
-        {
-            _context.Buyers.Add(buyer);
-            await _context.SaveChangesAsync();
-            await _mailService.SendEmailAsync(buyer.Email, "Registration Successful  ", "<h1>Hey!, You are successfully registered as Buyer in cakeworld </h1><p>Create your account at " + DateTime.Now + "</p>");
 
-            return CreatedAtAction("GetBuyer", new { id = buyer.Id }, buyer);
+
+        {
+
+            var BuyersWithSameEmail = _db.Buyers.FirstOrDefault(m => m.Email.ToLower() == buyer.Email.ToLower()); //check email already exit or not
+
+
+            if (BuyersWithSameEmail == null)
+            {
+
+
+                _context.Buyers.Add(buyer);
+                await _context.SaveChangesAsync();
+                await _mailService.SendEmailAsync(buyer.Email, "Registration Successful  ", "<h1>Hey!, You are successfully registered as Buyer in cakeworld </h1><p>Create your account at " + DateTime.Now + "</p>");
+                return CreatedAtAction("GetBuyer", new { id = buyer.Id }, buyer);
+
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+
         }
 
         // DELETE: api/Buyers/5

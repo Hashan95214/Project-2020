@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using cakeworld.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
 
 namespace cakeworld.Controllers
 {
@@ -15,6 +17,7 @@ namespace cakeworld.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=cakecontainer;AccountKey=JDCsdPOW3hZjoMuz9ErrS0FrfUtVNCA9t+UEukQE+dWn44dStQ6wTsNisk37cfaI66CD5ELEmcA5VHH9kbuypw==;EndpointSuffix=core.windows.net");
         private readonly OnlineDBContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
 
@@ -42,7 +45,7 @@ namespace cakeworld.Controllers
                      SellerID = x.SellerID,
                      Conformation = x.Conformation,
 
-                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                     ImageSrc = String.Format(" https://cakecontainer.blob.core.windows.net/image/{0}", x.ImageName)
                  })
 
                 .ToListAsync();
@@ -72,7 +75,7 @@ namespace cakeworld.Controllers
                      ImageName = x.ImageName,
                      SellerID = x.SellerID,
                      Conformation = x.Conformation,
-                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName)
+                     ImageSrc = String.Format("https://cakecontainer.blob.core.windows.net/image/{0}", x.ImageName)
                  })
                   .Where(x => x.Conformation == "Ok")
                 .ToListAsync();
@@ -91,7 +94,7 @@ namespace cakeworld.Controllers
                      Category = x.Category,
                      Description = x.Description,
                      ImageName = x.ImageName,
-                     ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName),
+                     ImageSrc = String.Format("https://cakecontainer.blob.core.windows.net/image/{0}", x.ImageName),
                      SellerID = x.SellerID
                  })
                  .Where(i => i.SellerID == para2)
@@ -112,7 +115,7 @@ namespace cakeworld.Controllers
                     Category = x.Category,
                     Description = x.Description,
                     ImageName = x.ImageName,
-                    ImageSrc = String.Format("{0}://{1}{2}/Images/{3}", Request.Scheme, Request.Host, Request.PathBase, x.ImageName),
+                    ImageSrc = String.Format("https://cakecontainer.blob.core.windows.net/image/{0}", x.ImageName),
                     SellerID = x.SellerID
                 })
                  .Where(i => i.ProductID == id)
@@ -202,16 +205,36 @@ namespace cakeworld.Controllers
         [NonAction]
         public async Task<string> SaveImage(IFormFile imageFile)
         {
-            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).Take(10).ToArray()).Replace(' ', '-');
-            imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(imageFile.FileName);
+            string imageName = new String(Path.GetFileNameWithoutExtension(imageFile.FileName).ToArray());
+            imageName = imageName + Path.GetExtension(imageFile.FileName);
             var imagePath = Path.Combine(_hostEnvironment.ContentRootPath, "Images", imageName);
-            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            //using (var fileStream = new FileStream(imagePath, FileMode.Create))
             {
-                await imageFile.CopyToAsync(fileStream);
+                await UploadToAzureAsync(imageFile);
             }
             return imageName;
 
         }
+
+        private async Task UploadToAzureAsync(IFormFile imageFile)
+        {
+            var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+
+            var cloudBlobContainer = cloudBlobClient.GetContainerReference("image");
+
+            if (await cloudBlobContainer.CreateIfNotExistsAsync())
+            {
+                await cloudBlobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Container });
+            }
+
+            var cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageFile.FileName);
+            cloudBlockBlob.Properties.ContentType = imageFile.ContentType;
+
+            await cloudBlockBlob.UploadFromStreamAsync(imageFile.OpenReadStream());
+        }
+
+
+
 
 
         [NonAction]

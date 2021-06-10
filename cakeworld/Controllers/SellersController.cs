@@ -17,12 +17,14 @@ namespace cakeworld.Controllers
     {
         private readonly IConfiguration _config;
         private readonly OnlineDBContext _context;
+        public readonly OnlineDBContext _db;
         private IMailService _mailService;
 
-        public SellersController(IConfiguration config, OnlineDBContext context, IMailService mailService)
+        public SellersController(IConfiguration config, OnlineDBContext db, OnlineDBContext context, IMailService mailService)
         {
             _config = config;
             _context = context;
+            _db = db;
             _mailService = mailService;
         }
 
@@ -84,12 +86,28 @@ namespace cakeworld.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Seller>> PostSeller(Seller seller)
-        {
-            _context.Sellers.Add(seller);
-            await _context.SaveChangesAsync();
-            await _mailService.SendEmailAsync(seller.Email, "Registration Successful", "<h1>Hey!, You are succesfully registered as seller in cakeworld </h1><p>Create your account at " + DateTime.Now + "</p>");
 
-            return CreatedAtAction("GetSeller", new { id = seller.Id }, seller);
+        {
+            // CustomerModelDB.Add(newcustomer);
+            var SellerWithSameEmail = _db.Sellers.FirstOrDefault(m => m.Email.ToLower() == seller.Email.ToLower()); //check email already exit or not
+
+
+            if (SellerWithSameEmail == null)
+            {
+
+
+                _context.Sellers.Add(seller);
+                await _context.SaveChangesAsync();
+                await _mailService.SendEmailAsync(seller.Email, "Registration Successful", "<h1>Hey!, You are succesfully registered as seller in cakeworld </h1><p>Create your account at " + DateTime.Now + "</p>");
+                return CreatedAtAction("GetSeller", new { id = seller.Id }, seller);
+
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+
         }
 
         // DELETE: api/Sellers/5

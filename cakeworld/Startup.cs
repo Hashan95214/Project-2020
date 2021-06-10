@@ -64,10 +64,10 @@ namespace cakeworld
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            app.UseCors(options => 
-            options.WithOrigins("http://localhost:3000")
-             .AllowAnyMethod()
-             .AllowAnyHeader());
+           // app.UseCors(options => 
+          //  options.WithOrigins("http://localhost:3000")
+            // .AllowAnyMethod()
+             //.AllowAnyHeader());
 
             app.UseCors(Options =>
             Options.AllowAnyOrigin()
@@ -82,11 +82,11 @@ namespace cakeworld
             }
 
 
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
-                RequestPath = "/Images"
-            });
+           // app.UseStaticFiles(new StaticFileOptions
+           // {
+           //     FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
+             //   RequestPath = "/Images"
+            //});
 
 
             app.UseHttpsRedirection();
